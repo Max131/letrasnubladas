@@ -1,0 +1,36 @@
+:root {
+  --font-sans: "Lora Variable", sans-serif;
+  --font-serif: "Playfair Display Variable", serif;
+  --text-color: #4a2d00;
+  --bg-color: #fdf8f0;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.625;
+    margin: 0;
+    padding: 0;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-serif);
+    font-variation-settings: "wght" 700;
+  }
+
+  :where(h1) {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@layer components {
+  .container {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+}
