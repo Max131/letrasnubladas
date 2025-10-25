@@ -3,6 +3,7 @@
   --font-serif: "Playfair Display Variable", serif;
   --text-color: #4a2d00;
   --bg-color: #fdf8f0;
+  --button-bg-color: #e5d7c2;
 }
 
 @layer base {
