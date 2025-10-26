@@ -1,0 +1,9 @@
+---
+layout: post
+title: ¿Duele el amor? 
+excerpt: ¿Duele en verdad el amor, o duele nuestra falsa ilusión de lo que es el amor? 
+author: Mario
+category: poema
+---
+
+"El amor duele", "el amor hiere" he escuchado gritar a muchos. Y es verdad, el amor duele cuando no se está con la persona correcta, cuando no hay una conexión profunda no sólo de corazones sino de almas. El amor duele cuando se está con alguien tan sólo por soledad, por sentirse acompañado, cuando se busca sentirse querido y amado y poner muy poco de sí mismo para dar lo que se pide, cuando se está con alguien por mero atractivo sin llegar por lo menos a una atracción intelectual. Te puede doler la ausencia, el recuerdo, la melancolía, los disgustos, las peleas y la distancia pero jamás el amor. Porque el amor es sólo eso, amor y nada más, es entregar el corazón, sí, con la esperanza de ser correspondido de igual manera, y de no serlo así quizá llores y sufras por ello, pero no dejarás de amar y eso no te dolerá. Por eso, cuando el amor te duela, te hiera, te haga sufrir, entiéndelo, eso no es amor. Por el contrario, cuando sientas ganas de luchar, de estar en las buenas y en las malas, de partirte el alma para superar obstáculos juntos y de aceptar a esa persona tal cual es, eso muy seguramente será amor y estarás con la persona correcta, no la sueltes, no la pierdas, pero sobre todo no tengas miedo de vivirlo, de disfrutarlo porque en el momento que te acobardes lo perderás todo y aquel amor que tenías y que era verdadero, quizá no lo vuelvas a encontrar jamás y vagarás eternamente por mundos subterraneos de obscuridad y falso amor. 
