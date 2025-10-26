@@ -1,7 +1,12 @@
 ---
+import { getCollection } from "astro:content";
 import "@fontsource-variable/playfair-display";
 import "@fontsource-variable/lora";
 import "../styles/global.css";
+
+const posts = await getCollection("blog");
+console.log("+++++++");
+console.log(posts[0]);
 ---
 
 <html lang="en">
@@ -10,7 +15,7 @@ import "../styles/global.css";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Letras Nubladas</title>
 	</head>
 	<body>
 		<div class="container">
@@ -21,6 +26,15 @@ import "../styles/global.css";
 				nesciunt ratione est Numquam facilis velit alias praesentium officiis
 				quisquam? Eaque illum
 			</p>
+			<ul>
+				{
+					posts.map((post) => (
+						<li key={post.id}>
+							<a href={`/${post.id}/`}>{post.data.title}</a>
+						</li>
+					))
+				}
+			</ul>
 		</div>
 	</body>
 </html>
