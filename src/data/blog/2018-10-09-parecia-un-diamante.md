@@ -1,10 +1,9 @@
 ---
-layout: post
 title: Parecía un diamante
 excerpt: Parecía un diamante cuando cayó del cielo...
 author: Mario
 category: cuento
-image:  /assets/post-images/valou2.jpg
+image:  valou2.jpg
 ---
 
 Parecía un diamante cuando cayó del cielo, en realidad era una mortal larva extraterrestre.  

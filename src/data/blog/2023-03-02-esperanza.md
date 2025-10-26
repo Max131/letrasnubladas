@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Esperanza
 excerpt: Siempre hay un atisbo de adusta esperanza en lo más profundo de nuestras causas pérdidas, una que se aferra a lo imposible
 author: Mario

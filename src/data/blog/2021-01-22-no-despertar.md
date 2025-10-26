@@ -1,5 +1,4 @@
 ---
-layout: post
 title: No despertar
 excerpt: De pronto, un lunes de madrugada, te colaste en mis sueños, y fue algo dulce e inesperado, hacía años que nadie venía a mi mientras mi cuerpo descansaba
 author: Mario

@@ -1,10 +1,9 @@
 ---
-layout: post
 title: El volcán entro en erupción
 excerpt: El martes el volcán entró en erupción, ya no podía contenerlo ni un segundo más...
 author: Mario
 category: cuento
-image:  /assets/post-images/girlredhead.jpg
+image:  girlredhead.jpg
 ---
 
 El martes el volcán entró en erupción, ya no podía contenerlo ni un segundo más y tenía que explotarle todos los te amo a aquella chica de cabello de fuego.  

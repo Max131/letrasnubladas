@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Volveré a verte
 excerpt: Sé que volveré a verte, que alzaré mi mano desnuda de todo juicio  
 author: Mario

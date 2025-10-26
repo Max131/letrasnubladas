@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Amueblar el alma
 excerpt: Hace tanto tiempo que la casa de mi alma está vacía, sin nadie que habite en ella más que los ecos de mi soledad. Y resulta que misteriosamente coincidimos, y veo que los muebles de tu ser bien podrían caber perfectamente en esta casa. 
 author: Mario

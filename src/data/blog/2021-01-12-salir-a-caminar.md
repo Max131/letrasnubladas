@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Salir a caminar
 excerpt: He sabido que las personas para conocerse gustan de invitarse al restaurante, al cine ¿pero que clases de invitaciones son esas?
 author: Mario

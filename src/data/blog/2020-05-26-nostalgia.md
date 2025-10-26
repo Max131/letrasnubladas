@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Nostalgia
 excerpt: La nostalgia no es tristeza ni tampoco alegría, es un punto intermedio.
 author: Mario

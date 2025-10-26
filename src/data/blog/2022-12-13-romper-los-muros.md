@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Romper los muros
 excerpt: Voy a romper los muros y derribar los miedos, voy a sacar el corazón y explotar el alma
 author: Mario

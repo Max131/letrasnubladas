@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Un hombre que llora
 excerpt: No hace mucho que en ocasiones ha estado llorando,  pero hacía emasiado tiempo que no sentía sus lagrimas caer sobre su piel.
 author: Mario

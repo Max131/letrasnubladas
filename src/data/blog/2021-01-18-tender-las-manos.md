@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Tender las manos
 excerpt: Cuando la oscuridad se cierre sobre ti, cuando la llovizna se te vuelva tempestad, cuando no pares de temblar y caigas de rodillas, cuando el alma se haga ovillo en lo más recóndito de tu ser
 author: Mario

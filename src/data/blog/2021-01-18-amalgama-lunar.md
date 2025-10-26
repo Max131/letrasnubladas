@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Amalgama lunar
 excerpt: Que la luna llena sea el amalgama restante, que su cósmica luz ilumine almas y trace senderos que culminen en el mismo sitio
 author: Mario

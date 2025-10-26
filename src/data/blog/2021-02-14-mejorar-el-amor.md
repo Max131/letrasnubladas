@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Mejorar el amor
 excerpt: El amor busca mejorar, crecer, respetar, confiar. La pasión sólo es el deseo desmedido haya o no lógica en ello. El amor busca comunión, empatía, solución. La pasión busca satisfacción, desbordarse por placer y no por cariño. 
 author: Mario

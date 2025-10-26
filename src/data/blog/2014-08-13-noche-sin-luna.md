@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Noche sin luna
 excerpt: Si en ésta noche no tengo luna ni tengo tus manos, ¿qué me queda? 
 author: Mario

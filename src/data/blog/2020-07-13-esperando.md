@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Esperando
 excerpt: Aquí estoy, con el corazón temblando, rugiendo, esperando.
 author: Mario

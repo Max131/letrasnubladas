@@ -1,5 +1,4 @@
 ---
-layout: post
 title: No eras la indicada
 excerpt: No eras la mujer indicada, porque la realidad es que este amor no fue correspondido y las miradas no indicaban nada.
 author: Mario

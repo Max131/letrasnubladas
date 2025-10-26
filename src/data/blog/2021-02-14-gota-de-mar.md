@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Gota de mar
 excerpt: Gota de mar,  tu salinidad recuerda a las lágrimas que se vierten en la soledad,  eres la figura del vientre que da la vida que rompe en llanto al llegar
 author: Mario

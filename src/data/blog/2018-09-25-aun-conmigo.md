@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Aún conmigo
 excerpt: Hace meses que te he perdido, te perdí y me dejaste tan sólo con esta extraña calma
 author: Mario

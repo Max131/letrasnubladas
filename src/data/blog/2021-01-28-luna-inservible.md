@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Luna inservible
 excerpt: De qué me sirve la luna si no estas conmigo, de que sirve que ilumine mi oscuridad, si no estás tú para guiar mi camino.
 author: Mario

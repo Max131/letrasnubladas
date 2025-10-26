@@ -1,10 +1,9 @@
 ---
-layout: post
 title: Miércoles de ceniza
 excerpt: Ella quería que la acompañara a su ritual religioso de "miércoles de ceniza" a pesar de que ella sabía que no soy muy dado a la religión, a pesar de eso, estuvo insistente y acepté ir con ella, al final de cuentas ¿qué podría pasar?, no creo que algo malo y no perdería nada en complacerla.  
 author: Mario
 category: cuento
-image:  /assets/post-images/chica-cuchillo.jpg
+image:  chica-cuchillo.jpg
 ---
 
 Ella quería que la acompañara a su ritual religioso de "miércoles de ceniza" a pesar de que ella sabía que no soy muy dado a la religión, a pesar de eso, estuvo insistente y acepté ir con ella, al final de cuentas ¿qué podría pasar?, no creo que algo malo y no perdería nada en complacerla.   

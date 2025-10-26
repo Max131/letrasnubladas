@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Manos vacías
 excerpt: Mis manos están vacías e inertes, mis pies cansados tienen rumbo hacía la nada; la mirada apunta hacía el suelo en señal de una eterna espera, y mi boca está seca y en silencio.
 author: Mario

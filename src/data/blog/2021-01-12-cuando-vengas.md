@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Cuando vengas
 excerpt: Cuándo vengas, cuando salgas de la nada que nos separa y se me revele tu nombre al fin.
 author: Mario

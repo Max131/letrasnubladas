@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Pronto llegarás
 excerpt: Sé que pronto llegarás, una silueta desconocida entre luces y sombras emergerá.
 author: Mario

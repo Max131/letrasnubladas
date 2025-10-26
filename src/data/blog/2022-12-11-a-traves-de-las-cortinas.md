@@ -1,5 +1,4 @@
 ---
-layout: post
 title: A través de las cortinas
 excerpt: A veces imagino como será ver a través de las cortinas de tu alma, imagino que me permites correrlas para entrar en ti, para vivir en ti.
 author: Mario

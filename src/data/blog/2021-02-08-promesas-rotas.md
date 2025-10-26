@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Promesas rotas
 excerpt: Hay un momento que se hacen promesas de no herirse, de no lastimarse. De pronto, un día, hay quién amanece con heridas sangrantes y un corazón que supura tristeza.
 

@@ -1,10 +1,9 @@
 ---
-layout: post
 title: Regreso al cosmos
 excerpt: En algún inevitable momento ella iba a regresar a su origen, al lugar dónde nació sin haber nacido. 
 author: Mario
 category: cuento
-image:  /assets/post-images/milkyway.jpg
+image:  milkyway.jpg
 ---
 
 Todo en aquel momento era silencio, un silencio fúnebre y desconsolador que era la antesala de lo que estaba sucediendo, y Ana Jímena lo sabía muy bien.  

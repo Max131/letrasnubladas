@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Amanecerá
 excerpt: Amanecerá, pronto la luz dará color a las nubes y las aves trinarán y tú, tú no estás.
 author: Mario

@@ -1,10 +1,9 @@
 ---
-layout: post
 title: Cuando eras tú
 excerpt: Me gustabas cuando eras tú, cuando eras viento y libertad y eras huella que iniciaba sendero.  
 author: Mario
 category: poema
-image:  /assets/post-images/clayton-fidelis-unsplash.jpg
+image:  clayton-fidelis-unsplash.jpg
 ---
 
 Me gustabas cuando eras tú,  

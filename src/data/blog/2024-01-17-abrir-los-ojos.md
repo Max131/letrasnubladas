@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Abrir los ojos
 excerpt: Cerró sus ojos frente al viento, suspiró entendiendo que la vida misma son los sueños.
 author: Mario

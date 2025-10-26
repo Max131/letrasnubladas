@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Desnudar el alma
 excerpt: Desnudo mi alma para cobijar tu corazón; corazón noble, justo.
 author: Mario

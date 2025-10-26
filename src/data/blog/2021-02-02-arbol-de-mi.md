@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Árbol de mí
 excerpt: Avanza un poco, da unos cuantos pasos y alcanza mis manos y brazos, está  tendidos  como ramas que guarecen a las aves, ellos te darán refugio también.
 author: Mario

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: ¿Duele el amor? 
 excerpt: ¿Duele en verdad el amor, o duele nuestra falsa ilusión de lo que es el amor? 
 author: Mario

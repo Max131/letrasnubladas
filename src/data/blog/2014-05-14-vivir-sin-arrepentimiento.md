@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Vivir sin arrepentimiento
 excerpt: No existe una forma de vivir sin algún arrepentimiento en tu vida.
 author: Mario

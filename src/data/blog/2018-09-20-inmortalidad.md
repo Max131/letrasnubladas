@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Inmortalidad
 excerpt: Te amé tanto que, un día, abandonó mi alma la cárcel de su cuerpo.
 author: Mario

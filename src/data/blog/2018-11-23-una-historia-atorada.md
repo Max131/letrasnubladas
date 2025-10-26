@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Una historia atorada
 excerpt: Tengo una historia atorada en la punta de los dedos...
 author: Mario

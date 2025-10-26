@@ -1,5 +1,4 @@
 ---
-layout: post
 title: La palabra
 excerpt: La palabra que emanaba de su boca...
 author: Mario

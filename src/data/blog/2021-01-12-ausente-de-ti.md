@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Ausente de ti
 excerpt: Mi corazón late lento, el tiempo parece no pasar cuando estás ausente, cuando no sé de ti.
 author: Mario

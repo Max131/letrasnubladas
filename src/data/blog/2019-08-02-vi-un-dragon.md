@@ -1,10 +1,9 @@
 ---
-layout: post
 title: ¡Vi un dragón!
 excerpt: ¡Vi un dragón surcando el cielo, lo juro! Y fue verdad...
 author: Mario
 category: cuento
-image: /assets/post-images/child-dragon.jpg
+image: child-dragon.jpg
 ---
 
 ¡Vi un dragón surcando el cielo, lo juro! Y fue verdad, era un dragón como Falcón, de "_La historia sin fin_", aunque este era negro, pero al igual que él, serpenteaba majestuosamente el cielo en la lejanía, yo iba en el autobús, pero lo miré con una inmensa alegría y asombro, no podía creer que un ser del mundo de la fantasía se hiciera presente.  

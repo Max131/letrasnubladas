@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Mi nombre en tu boca
 excerpt: Ven, acércate. Pon mi nombre en tu boca y séllalo dentro de ti, nómbrame en tus canciones, piénsame un poco y ponme en tus más fervientes oraciones.
 author: Mario

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Notas inconclusas II
 excerpt: Es terrible darte cuenta de que sólo fuiste un pretexto para muchas cosas, pero sobre todo, un capricho de placer pasajero...
 author: Mario

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: No estabas tú
 excerpt: Al final no encontré lo que buscaba, no estabas tú, no estaba yo...
 author: Mario

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Condenado
 excerpt: Lentamente se desvanecía aquella sonrisa que llevaba impregnada en el pensamiento desde hace años...
 author: Mario

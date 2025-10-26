@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Suspiro de Dios
 excerpt: Hablo de tu belleza como algo invisible, algo que no puedo ver ni tocar, hablo de lo que siento al verte, de lo que me provocas en los ojos, en la piel, en mi calma
 author: Mario

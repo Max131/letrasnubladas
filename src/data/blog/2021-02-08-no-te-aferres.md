@@ -1,5 +1,4 @@
 ---
-layout: post
 title: No te aferres
 excerpt: No te aferres a ilusiones, a espejismos sin razón a visiones de añoranza.  
 author: Mario

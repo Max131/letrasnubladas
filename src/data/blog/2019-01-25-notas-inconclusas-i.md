@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Notas inconclusas I
 excerpt: Amamos, añoramos y deseamos el tótem de lo que fue...
 author: Mario

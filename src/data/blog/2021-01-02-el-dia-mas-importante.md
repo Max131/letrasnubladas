@@ -1,5 +1,4 @@
 ---
-layout: post
 title: El día más importante
 excerpt: El día más importante de mi vida será el día en que muera, que será mañana o tal vez en una semana o en muchos años. Pero sin duda será el día más importante
 author: Mario

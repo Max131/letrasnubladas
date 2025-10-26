@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Con cada trozo
 excerpt: Te quiero con mis dudas y mis miedos, que no son pocos; te quiero con mis fracasos y mis quebrantos.
 author: Mario

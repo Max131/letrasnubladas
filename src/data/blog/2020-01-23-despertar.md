@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Despertar
 excerpt: Me gusta despertar y ver el rastro de la fugaz lluvia que corrió por la noche...
 author: Mario

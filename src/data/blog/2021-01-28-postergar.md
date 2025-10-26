@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Postergar
 excerpt: El tiempo no se detiene y la vida cada día nos acerca más a la muerte, mientras el azar también juega con nosotros y así como hoy estamos, tal vez mañana partamos. 
 author: Mario

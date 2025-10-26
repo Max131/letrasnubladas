@@ -1,5 +1,4 @@
 ---
-layout: post
 title: El silencio
 excerpt: El silencio también es una respuesta, un tanto cobarde para no hacer ninguna afrenta.
 author: Mario

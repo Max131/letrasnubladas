@@ -1,5 +1,4 @@
 ---
-layout: post
 title: De madrugada
 excerpt: Ésta madrugada me dio por correr las persianas...
 author: Mario

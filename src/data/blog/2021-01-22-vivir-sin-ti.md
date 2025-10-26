@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Vivir sin ti
 excerpt: Puedo vivir sin ti, abocarme a mi soledad y quererme como te quiero a ti. Puedo andar sin ti, recorrer ríos, montes y valles sin imaginarte ahí, conmigo.
 author: Mario

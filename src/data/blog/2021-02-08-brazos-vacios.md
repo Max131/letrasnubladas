@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Brazos vacíos
 excerpt: Tengo los brazos vacíos, las pisadas solitarias, los suspiros no se dirigen a ningún lugar. Los ojos anegados y bien abiertos están centrados en la luna
 author: Mario

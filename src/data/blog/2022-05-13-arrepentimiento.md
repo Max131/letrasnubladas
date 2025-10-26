@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Arrepentimiento
 excerpt: No existe, de ninguna manera, forma alguna de vivir de tal modo que en el último aliento no te arrepientas de algo. Siempre, absolutamente siempre habrá algo de que arrepentirte.
 author: Mario
