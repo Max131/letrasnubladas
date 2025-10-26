@@ -1,0 +1,95 @@
+---
+import { getCollection, render } from "astro:content";
+import "@fontsource-variable/playfair-display";
+import "@fontsource-variable/lora";
+import "../../styles/global.css";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  
+  return posts
+    .filter((post) => post.data.category === "reflexión")
+    .map((post) => {
+      // Extract date and slug from id (format: YYYY-MM-DD-title, no extension)
+      const match = post.id.match(/^(\d{4}-\d{2}-\d{2})-(.+)$/);
+      
+      if (match) {
+        const [, date, slug] = match;
+        return {
+          params: { slug },
+          props: { post, date },
+        };
+      }
+      
+      // Fallback if no date pattern found
+      return {
+        params: { slug: post.id },
+        props: { post, date: null },
+      };
+    });
+}
+
+const { post, date } = Astro.props;
+const { Content } = await render(post);
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{post.data.title} - Letras Nubladas</title>
+    {post.data.excerpt && <meta name="description" content={post.data.excerpt} />}
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <a href="/">← Inicio</a>
+      </nav>
+      
+      <article>
+        <header>
+          <h1>{post.data.title}</h1>
+          {date && <time datetime={date}>{date}</time>}
+          {post.data.excerpt && <p class="excerpt">{post.data.excerpt}</p>}
+        </header>
+        
+        <Content />
+      </article>
+    </div>
+  </body>
+</html>
+
+<style>
+  nav {
+    margin-bottom: 2rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  article header {
+    margin-bottom: 2rem;
+  }
+  
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+  
+  time {
+    display: block;
+    color: #8b6f47;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  
+  .excerpt {
+    font-style: italic;
+    color: #6b5635;
+    border-left: 3px solid var(--button-bg-color);
+    padding-left: 1rem;
+  }
+</style>

@@ -5,6 +5,29 @@ import "@fontsource-variable/lora";
 import "../styles/global.css";
 
 const posts = await getCollection("blog");
+
+// Helper function to get category path and slug
+function getPostUrl(post: any) {
+  const category = post.data.category;
+  const match = post.id.match(/^(\d{4}-\d{2}-\d{2})-(.+)$/);
+  const slug = match ? match[2] : post.id;
+  
+  // Map categories to URL paths
+  const categoryMap: Record<string, string> = {
+    "poema": "poemas",
+    "cuento": "cuentos",
+    "micro cuento": "cuentos",
+    "reflexión": "reflexiones",
+  };
+  
+  const categoryPath = category ? categoryMap[category] : null;
+  
+  if (categoryPath) {
+    return `/${categoryPath}/${slug}`;
+  }
+  
+  return `/${slug}`;
+}
 ---
 
 <html lang="en">
@@ -28,7 +51,8 @@ const posts = await getCollection("blog");
 				{
 					posts.map((post) => (
 						<li key={post.id}>
-							<a href={`/${post.id}/`}>{post.data.title}</a>
+							<a href={getPostUrl(post)}>{post.data.title}</a>
+							{post.data.category && <span class="category"> • {post.data.category}</span>}
 						</li>
 					))
 				}
