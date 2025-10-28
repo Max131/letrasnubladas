@@ -6,9 +6,14 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  classes?: string;
 }
 
-const { title = "Letras Nubladas", description = "" } = Astro.props;
+const {
+  title = "Letras Nubladas",
+  description = "",
+  classes = "",
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -19,10 +24,9 @@ const { title = "Letras Nubladas", description = "" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>Letras Nubladas</title>
   </head>
-  <body>
-    <div class="container">
-      <h1>{title}</h1>
+  <body class:list={classes}>
+    <main class="container">
       <slot />
-    </div>
+    </main>
   </body>
 </html>

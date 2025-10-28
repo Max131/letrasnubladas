@@ -1,5 +1,6 @@
 ---
 import { getCollection, getStaticPaths, render } from "astro:content";
+import { getFormatedDate } from "@utils/index.ts";
 import Layout from "@layouts/Default.astro";
 
 export async function getStaticPaths() {
@@ -14,7 +15,14 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={post.data.title} description={post.data.excerpt}>
+<Layout
+  title={post.data.title}
+  description={post.data.excerpt}
+  classes="post-page"
+>
+  <a class="post-link-back" href="/">&larr; Inicio</a>
+  <h1>{post.data.title}</h1>
+  {getFormatedDate(post.id.match(/^\d{4}-\d{2}-\d{2}/)[0])}
   <p class="post-excerpt">{post.data.excerpt}</p>
   <Content />
 </Layout>

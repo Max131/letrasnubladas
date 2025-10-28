@@ -76,8 +76,26 @@
   }
 
   .post-excerpt {
-    padding-left: 0.5rem;
+    padding-left: 0.75rem;
+    margin-block: 2rem;
     border-left: 4px solid var(--button-bg-color);
     font-style: italic;
+  }
+
+  .post-link-back {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: var(--button-bg-color);
+    border-radius: var(--rounded);
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: color-mix(
+        in srgb,
+        var(--button-bg-color),
+        var(--text-color) 20%
+      );
+    }
   }
 }
