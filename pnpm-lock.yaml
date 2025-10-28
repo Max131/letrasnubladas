@@ -14,6 +14,9 @@ importers:
       '@fontsource-variable/playfair-display':
         specifier: ^5.2.8
         version: 5.2.8
+      '@lucide/astro':
+        specifier: ^0.548.0
+        version: 0.548.0(astro@5.15.1(@types/node@24.9.1)(rollup@4.52.5)(typescript@5.9.3))
       astro:
         specifier: ^5.15.1
         version: 5.15.1(@types/node@24.9.1)(rollup@4.52.5)(typescript@5.9.3)
@@ -427,6 +430,11 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
+
+  '@lucide/astro@0.548.0':
+    resolution: {integrity: sha512-rWrZckDneFBC12/fDkHlk6Ug+HJihPyaa5PGTMlYurRlYQAcaSskmAJCzOihdzw7Dn7RvpmswwzCgE+wMLqTjw==}
+    peerDependencies:
+      astro: ^4 || ^5
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2651,6 +2659,10 @@ snapshots:
     optional: true
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
+
+  '@lucide/astro@0.548.0(astro@5.15.1(@types/node@24.9.1)(rollup@4.52.5)(typescript@5.9.3))':
+    dependencies:
+      astro: 5.15.1(@types/node@24.9.1)(rollup@4.52.5)(typescript@5.9.3)
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
