@@ -17,13 +17,17 @@ import { Menu } from "@lucide/astro";
           <strong>Letras Nubladas</strong>
         </a>
       </p>
-      <nav>
+      <nav id="mobile-menu">
         <ul>
           <li><a href="/book">Libro</a></li>
           <li><a href="/about">Acerca de</a></li>
         </ul>
       </nav>
-      <button>
+      <button
+        aria-label="Menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
         <Menu size={24} />
       </button>
     </div>
