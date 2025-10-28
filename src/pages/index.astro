@@ -1,8 +1,6 @@
 ---
+import Layout from "@layouts/Default.astro";
 import { getCollection } from "astro:content";
-import "@fontsource-variable/playfair-display";
-import "@fontsource-variable/lora";
-import "../styles/global.css";
 
 const posts = await getCollection("blog");
 const articles = posts
@@ -40,44 +38,29 @@ const getSlugFromId = (id: string): string => {
   const title = id.match(/[a-zA-Z].+/)[0];
   return title;
 };
+
+console.log("*****");
+console.log(articles[0]);
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Letras Nubladas</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Letras Nubladas</h1>
-      <p>
-        Dolor iure praesentium nihil obcaecati recusandae saepe. Quae deleniti
-        doloremque impedit voluptates iusto. Molestiae sed aperiam saepe beatae
-        nesciunt ratione est Numquam facilis velit alias praesentium officiis
-        quisquam? Eaque illum
-      </p>
-      <ul class="post-list">
-        {
-          articles.map(({ id, date, data }) => (
-            <li>
-              <article>
-                <h2 class="post-list-title">
-                  <a class="post-list-link" href={`${getSlugFromId(id)}`}>
-                    {data.title}
-                  </a>
-                </h2>
-                <time class="post-list-date" datetime={date}>
-                  {getFormatedDate(date)}
-                </time>
-                <p class="post-list-summary">{data.excerpt}</p>
-              </article>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </body>
-</html>
+<Layout>
+  <ul class="post-list">
+    {
+      articles.map(({ id, date, data }) => (
+        <li>
+          <article>
+            <h2 class="post-list-title">
+              <a class="post-list-link" href={`${getSlugFromId(id)}`}>
+                {data.title}
+              </a>
+            </h2>
+            <time class="post-list-date" datetime={date}>
+              {getFormatedDate(date)}
+            </time>
+            <p class="post-list-summary">{data.excerpt}</p>
+          </article>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>

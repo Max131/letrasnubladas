@@ -74,4 +74,10 @@
   .post-list-summary {
     margin-block: 0 2rem;
   }
+
+  .post-excerpt {
+    padding-left: 0.5rem;
+    border-left: 4px solid var(--button-bg-color);
+    font-style: italic;
+  }
 }
