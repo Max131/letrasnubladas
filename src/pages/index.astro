@@ -31,9 +31,14 @@ const MONTHS = {
   "12": "Diciembre",
 } as const;
 
-const convertDate = (dateString: string): string => {
+const getFormatedDate = (dateString: string): string => {
   const [year, month, day] = dateString.split("-");
   return `${MONTHS[month as keyof typeof MONTHS]} ${day}, ${year}`;
+};
+
+const getSlugFromId = (id: string): string => {
+  const title = id.match(/[a-zA-Z].+/)[0];
+  return title;
 };
 ---
 
@@ -56,16 +61,16 @@ const convertDate = (dateString: string): string => {
       </p>
       <ul class="post-list">
         {
-          articles.map(({ date, data }) => (
+          articles.map(({ id, date, data }) => (
             <li>
               <article>
                 <h2 class="post-list-title">
-                  <a class="post-list-link" href="#!">
+                  <a class="post-list-link" href={`${getSlugFromId(id)}`}>
                     {data.title}
                   </a>
                 </h2>
                 <time class="post-list-date" datetime={date}>
-                  {convertDate(date)}
+                  {getFormatedDate(date)}
                 </time>
                 <p class="post-list-summary">{data.excerpt}</p>
               </article>
