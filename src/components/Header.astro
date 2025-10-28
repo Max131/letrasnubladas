@@ -1,0 +1,63 @@
+---
+
+---
+
+<header>
+  <div class="container">
+    <div class="site-header-container">
+      <img
+        src="/favicon.svg"
+        width="32"
+        height="32"
+        alt="Letras Nubladas Logo"
+        class="header-logo"
+      />
+      <p class="header-title">
+        <a href="/">
+          <strong>Letras Nubladas</strong>
+        </a>
+      </p>
+      <nav>
+        <ul>
+          <li><a href="/book">Libro</a></li>
+          <li><a href="/about">Acerca de</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--button-bg-color);
+  }
+
+  .container {
+    padding-block: 0;
+  }
+
+  .site-header-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  nav {
+    margin-left: auto;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+  }
+</style>
