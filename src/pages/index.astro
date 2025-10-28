@@ -5,11 +5,36 @@ import "@fontsource-variable/lora";
 import "../styles/global.css";
 
 const posts = await getCollection("blog");
-const articles = posts.sort((a, b) => {
-  const timeStampA = new Date(a.id.match(/^\d{4}-\d{2}-\d{2}/)[0]).getTime();
-  const timeStampB = new Date(b.id.match(/^\d{4}-\d{2}-\d{2}/)[0]).getTime();
-  return timeStampB - timeStampA;
-});
+const articles = posts
+  .sort((a, b) => {
+    const timeStampA = new Date(a.id.match(/^\d{4}-\d{2}-\d{2}/)[0]).getTime();
+    const timeStampB = new Date(b.id.match(/^\d{4}-\d{2}-\d{2}/)[0]).getTime();
+    return timeStampB - timeStampA;
+  })
+  .map((post) => ({
+    ...post,
+    date: post.id.match(/^\d{4}-\d{2}-\d{2}/)[0],
+  }));
+
+const MONTHS = {
+  "01": "Enero",
+  "02": "Febrero",
+  "03": "Marzo",
+  "04": "Abril",
+  "05": "Mayo",
+  "06": "Junio",
+  "07": "Julio",
+  "08": "Agosto",
+  "09": "Septiembre",
+  "10": "Octubre",
+  "11": "Noviembre",
+  "12": "Diciembre",
+} as const;
+
+const convertDate = (dateString: string): string => {
+  const [year, month, day] = dateString.split("-");
+  return `${MONTHS[month as keyof typeof MONTHS]} ${day}, ${year}`;
+};
 ---
 
 <html lang="en">
@@ -31,7 +56,7 @@ const articles = posts.sort((a, b) => {
       </p>
       <ul class="post-list">
         {
-          articles.map(({ data }) => (
+          articles.map(({ date, data }) => (
             <li>
               <article>
                 <h2 class="post-list-title">
@@ -39,6 +64,9 @@ const articles = posts.sort((a, b) => {
                     {data.title}
                   </a>
                 </h2>
+                <time class="post-list-date" datetime={date}>
+                  {convertDate(date)}
+                </time>
                 <p class="post-list-summary">{data.excerpt}</p>
               </article>
             </li>
