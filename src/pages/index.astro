@@ -5,58 +5,46 @@ import "@fontsource-variable/lora";
 import "../styles/global.css";
 
 const posts = await getCollection("blog");
-
-// Helper function to get category path and slug
-function getPostUrl(post: any) {
-  const category = post.data.category;
-  const match = post.id.match(/^(\d{4}-\d{2}-\d{2})-(.+)$/);
-  const slug = match ? match[2] : post.id;
-  
-  // Map categories to URL paths
-  const categoryMap: Record<string, string> = {
-    "poema": "poemas",
-    "cuento": "cuentos",
-    "micro cuento": "cuentos",
-    "reflexión": "reflexiones",
-  };
-  
-  const categoryPath = category ? categoryMap[category] : null;
-  
-  if (categoryPath) {
-    return `/${categoryPath}/${slug}`;
-  }
-  
-  return `/${slug}`;
-}
+const articles = posts.sort((a, b) => {
+  const timeStampA = new Date(a.id.match(/^\d{4}-\d{2}-\d{2}/)[0]).getTime();
+  const timeStampB = new Date(b.id.match(/^\d{4}-\d{2}-\d{2}/)[0]).getTime();
+  return timeStampB - timeStampA;
+});
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Letras Nubladas</title>
-	</head>
-	<body>
-		<div class="container">
-			<h1>Letras Nubladas</h1>
-			<p>
-				Dolor iure praesentium nihil obcaecati recusandae saepe. Quae deleniti
-				doloremque impedit voluptates iusto. Molestiae sed aperiam saepe beatae
-				nesciunt ratione est Numquam facilis velit alias praesentium officiis
-				quisquam? Eaque illum
-			</p>
-			<ul>
-				{
-					posts.map((post) => (
-						<li key={post.id}>
-							<a href={getPostUrl(post)}>{post.data.title}</a>
-							{post.data.category && <span class="category"> • {post.data.category}</span>}
-						</li>
-					))
-				}
-			</ul>
-		</div>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Letras Nubladas</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Letras Nubladas</h1>
+      <p>
+        Dolor iure praesentium nihil obcaecati recusandae saepe. Quae deleniti
+        doloremque impedit voluptates iusto. Molestiae sed aperiam saepe beatae
+        nesciunt ratione est Numquam facilis velit alias praesentium officiis
+        quisquam? Eaque illum
+      </p>
+      <ul class="post-list">
+        {
+          articles.map(({ data }) => (
+            <li>
+              <article>
+                <h2 class="post-list-title">
+                  <a class="post-list-link" href="#!">
+                    {data.title}
+                  </a>
+                </h2>
+                <p class="post-list-summary">{data.excerpt}</p>
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </body>
 </html>
