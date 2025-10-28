@@ -21,8 +21,10 @@ const { Content } = await render(post);
   classes="post-page"
 >
   <a class="post-link-back" href="/">&larr; Inicio</a>
-  <h1>{post.data.title}</h1>
-  {getFormatedDate(post.id.match(/^\d{4}-\d{2}-\d{2}/)[0])}
-  <p class="post-excerpt">{post.data.excerpt}</p>
+  <header class="post-header">
+    <h1>{post.data.title}</h1>
+    {getFormatedDate(post.id.match(/^\d{4}-\d{2}-\d{2}/)[0])}
+    <p class="post-excerpt">{post.data.excerpt}</p>
+  </header>
   <Content />
 </Layout>

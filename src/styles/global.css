@@ -49,6 +49,18 @@
     padding: 1rem;
   }
 
+  .home-header {
+    margin-bottom: 2rem;
+    h1 {
+      margin-bottom: 0;
+      line-height: 1;
+    }
+
+    p {
+      margin-top: 0;
+    }
+  }
+
   .post-list {
     list-style: none;
     padding: 0;

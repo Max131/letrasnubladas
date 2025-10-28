@@ -22,7 +22,10 @@ const getSlugFromId = (id: string): string => {
 ---
 
 <Layout classes="home-page">
-  <h1>Letras Nubladas</h1>
+  <header class="home-header">
+    <h1>Letras Nubladas</h1>
+    <p>Poesía, cuentos, reflexiones & ♥</p>
+  </header>
   <ul class="post-list">
     {
       articles.map(({ id, date, data }) => (
