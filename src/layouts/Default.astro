@@ -23,6 +23,12 @@ const { title = "", description = "", classes = "" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Letras Nubladas"
+      href={new URL("/rss.xml", Astro.site).toString()}
+    />
     <title>{title ? `${title} | Letras Nubladas` : "Letras Nubladas"}</title>
   </head>
 
