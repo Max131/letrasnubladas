@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.13",
     "@fontsource-variable/lora": "^5.2.8",
     "@fontsource-variable/playfair-display": "^5.2.8",
     "@lucide/astro": "^0.548.0",
