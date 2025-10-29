@@ -19,9 +19,12 @@ const getSlugFromId = (id: string): string => {
   const title = id.match(/[a-zA-Z].+/)[0];
   return title;
 };
+
+const description =
+  "Letras Nubladas es un espacio dedicado a la poesía, cuentos y reflexiones. Explora nuestras publicaciones y déjate llevar por las palabras.";
 ---
 
-<Layout classes="home-page">
+<Layout classes="home-page" description={description}>
   <header class="home-header">
     <h1>Letras Nubladas</h1>
     <p>Poesía, cuentos, reflexiones & ♥</p>
