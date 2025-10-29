@@ -11,6 +11,9 @@
 
 @layer base {
   body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh;
     font-family: var(--font-sans);
     font-size: 1.125rem;
     color: var(--text-color);
