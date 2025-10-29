@@ -6,7 +6,7 @@
   --button-bg-color: #e5d7c2;
   --rounded: 0.375rem;
   --rounded-sm: 0.25rem;
-  --container-width: 80rem;
+  --container-width: 80ch;
 }
 
 @layer base {
@@ -87,29 +87,5 @@
 
   .post-list-summary {
     margin-block: 0 2rem;
-  }
-
-  .post-excerpt {
-    padding-left: 0.75rem;
-    margin-block: 2rem;
-    border-left: 4px solid var(--button-bg-color);
-    font-style: italic;
-  }
-
-  .post-link-back {
-    display: inline-block;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    background-color: var(--button-bg-color);
-    border-radius: var(--rounded);
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: color-mix(
-        in srgb,
-        var(--button-bg-color),
-        var(--text-color) 20%
-      );
-    }
   }
 }
