@@ -34,6 +34,31 @@ const { title = "", description = "", classes = "" } = Astro.props;
       name="keywords"
       content="poesía, cuentos, reflexiones, amor, soledad, esperanza, desamor, letras nubladas, mario flores abreu"
     />
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Poesía, cuentos, pensamientos, reflexiones con ❤️"
+    />
+    <meta property="og:locale" content="es" />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:url"
+      content={new URL(Astro.url.pathname, Astro.site).toString()}
+    />
+    <meta property="og:site_name" content="Letras Nubladas" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={`${Astro.site}og.jpg`} />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content={Astro.site} />
+    <meta
+      property="twitter:url"
+      content={new URL(Astro.url.pathname, Astro.site).toString()}
+    />
+    <meta name="twitter:title" content={`${title}`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${Astro.site}og.jpg`} />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       rel="canonical"
