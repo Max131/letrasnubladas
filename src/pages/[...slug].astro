@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import { getFormatedDate } from "@utils/index.ts";
+import { normalizeString } from "@utils/index.ts";
 import Layout from "@layouts/Default.astro";
 import PostImage from "@components/PostImage.astro";
 
@@ -22,7 +23,7 @@ const { Content } = await render(post);
   classes="post-page"
 >
   <!-- <a class="post-link-back" href="/">&larr; Inicio</a> -->
-  <article class={post.data.category}>
+  <article class={normalizeString(post.data.category)}>
     <header>
       <h1>{post.data.title}</h1>
       <p>Por {post.data.author}</p>

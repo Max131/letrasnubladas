@@ -18,7 +18,7 @@ export const getFormatedDate = (dateString: string): string => {
   return `${MONTHS[month as keyof typeof MONTHS]} ${day}, ${year}`;
 };
 
-export const nornalizeString = (str: string): string => {
+export const normalizeString = (str: string): string => {
   return str
     .toLowerCase()
     .normalize("NFD")
