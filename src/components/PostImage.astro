@@ -1,0 +1,47 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  image: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+}
+
+const { image, alt = "", width = 400, height = 200 }: Props = Astro.props;
+
+const imageURL = `/src/assets/images/${image}`;
+const images = import.meta.glob<ImageMetadata>(
+  "/src/assets/images/*.{jpg,jpeg,png,webp,avif,gif}",
+);
+
+if (!images[imageURL]) {
+  throw new Error(`Image not found: ${image}`);
+}
+---
+
+<figure>
+  <Image
+    class="post-image"
+    src={images[imageURL]()}
+    alt={alt}
+    width={width}
+    height={height}
+    sizes="(max-width: 600px) 100vw, 600px"
+    class="post-image"
+  />
+</figure>
+
+<style>
+  .post-image {
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.125rem;
+    box-shadow: 2px 4px 16px -6px currentColor;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+  }
+</style>

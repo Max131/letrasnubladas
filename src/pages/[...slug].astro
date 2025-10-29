@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import { getFormatedDate } from "@utils/index.ts";
 import Layout from "@layouts/Default.astro";
+import PostImage from "@components/PostImage.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -30,6 +31,11 @@ const { Content } = await render(post);
       </time>
     </header>
     <div>
+      {
+        post.data.image && (
+          <PostImage image={post.data.image} alt={post.data.title} />
+        )
+      }
       <Content />
     </div>
   </article>
@@ -37,7 +43,7 @@ const { Content } = await render(post);
 
 <style>
   header {
-    margin-block: 1rem 3rem;
+    margin-block: 1rem 5rem;
   }
 
   h1 {
