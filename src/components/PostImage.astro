@@ -33,14 +33,22 @@ if (!images[imageURL]) {
   />
 </figure>
 
-<style>
-  .post-image {
+<style define:vars={{ maxWidth: width + "px" }}>
+  figure {
+    margin-block: 0 1rem;
+    margin-inline: 1rem 0;
     float: right;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
+
+    @media (width <= 40rem) {
+      float: none;
+      margin-inline: 0;
+    }
+  }
+  .post-image {
+    display: block;
     border-radius: 0.125rem;
     box-shadow: 2px 4px 16px -6px currentColor;
-    max-width: 400px;
+    max-width: min(100%, var(--maxWidth));
     height: auto;
     object-fit: cover;
   }
