@@ -22,7 +22,23 @@ const { title = "", description = "", classes = "" } = Astro.props;
     <meta name="theme-color" content="#e5d7c2" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta name="author" content="Mario Flores Abreu" />
+    <meta name="copyright" content="Mario Flores Abreu" />
+    <meta name="language" content="Spanish" />
+    <meta name="distribution" content="global" />
+    <meta
+      name="license"
+      content="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    />
+    <meta
+      name="keywords"
+      content="poesía, cuentos, reflexiones, amor, soledad, esperanza, desamor, letras nubladas, mario flores abreu"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="canonical"
+      href={new URL(Astro.url.pathname, Astro.site).toString()}
+    />
     <link
       rel="alternate"
       type="application/rss+xml"
