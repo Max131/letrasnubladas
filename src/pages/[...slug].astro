@@ -21,14 +21,18 @@ const { Content } = await render(post);
   classes="post-page"
 >
   <!-- <a class="post-link-back" href="/">&larr; Inicio</a> -->
-  <header>
-    <h1>{post.data.title}</h1>
-    <p>Por {post.data.author}</p>
-    <time datetime={`${post.id.match(/^\d{4}-\d{2}-\d{2}/)[0]}`}>
-      {getFormatedDate(post.id.match(/^\d{4}-\d{2}-\d{2}/)[0])}
-    </time>
-  </header>
-  <Content />
+  <article class={post.data.category}>
+    <header>
+      <h1>{post.data.title}</h1>
+      <p>Por {post.data.author}</p>
+      <time datetime={`${post.id.match(/^\d{4}-\d{2}-\d{2}/)[0]}`}>
+        {getFormatedDate(post.id.match(/^\d{4}-\d{2}-\d{2}/)[0])}
+      </time>
+    </header>
+    <div>
+      <Content />
+    </div>
+  </article>
 </Layout>
 
 <style>
