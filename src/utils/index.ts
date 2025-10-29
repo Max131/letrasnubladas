@@ -17,3 +17,14 @@ export const getFormatedDate = (dateString: string): string => {
   const [year, month, day] = dateString.split("-");
   return `${MONTHS[month as keyof typeof MONTHS]} ${day}, ${year}`;
 };
+
+export const nornalizeString = (str: string): string => {
+  return str
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/ñ/g, "n")
+    .replace(/[^a-z0-9]/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+};
