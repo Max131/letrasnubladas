@@ -94,7 +94,7 @@ const { page } = Astro.props;
         </a>
       )
     }
-    <a class="button-page current">{page.currentPage}</a>
+    <a class="button-page current">{page.currentPage} de {page.lastPage}</a>
     {
       page.url?.prev && (
         <a
@@ -133,7 +133,7 @@ const { page } = Astro.props;
   .button-page {
     display: grid;
     place-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 0.5rem;
     background-color: var(--button-bg-color);
     text-decoration: none;
     border-radius: 4px;
