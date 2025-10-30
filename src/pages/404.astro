@@ -1,0 +1,26 @@
+---
+import Layout from "@layouts/Default.astro";
+---
+
+<Layout classes="not-found-page" title="Página no encontrada">
+  <p class="error">404</p>
+  <h1 style="margin-top:0">Al final no encontramos lo que buscabas</h1>
+  <p>
+    A veces buscamos tanto que nos perdemos, y solo nos queda volver a iniciar
+    el camino.
+  </p>
+  <p>
+    Puedes volver a la <a href="/">página principal</a> o explorar otras secciones
+    del sitio.
+  </p>
+
+  <style>
+    .error {
+      font-size: 3rem;
+      text-align: center;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</Layout>
