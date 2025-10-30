@@ -35,10 +35,7 @@ const { title = "", description = "", classes = "" } = Astro.props;
       content="poesía, cuentos, reflexiones, amor, soledad, esperanza, desamor, letras nubladas, mario flores abreu"
     />
     <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="Poesía, cuentos, pensamientos, reflexiones con ❤️"
-    />
+    <meta property="og:title" content={title} />
     <meta property="og:locale" content="es" />
     <meta property="og:description" content={description} />
     <meta
