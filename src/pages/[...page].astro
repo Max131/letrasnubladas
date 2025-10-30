@@ -1,0 +1,147 @@
+---
+import Layout from "@layouts/Default.astro";
+import { getCollection } from "astro:content";
+import { getFormatedDate } from "@utils/index.ts";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronFirst,
+  ChevronLast,
+} from "@lucide/astro";
+
+export const getStaticPaths = async ({ paginate }) => {
+  const articles = await getCollection("blog");
+  console.log(articles);
+  const posts = articles
+    .sort((a, b) => {
+      const timeStampA = new Date(
+        a.id.match(/^\d{4}-\d{2}-\d{2}/)[0],
+      ).getTime();
+      const timeStampB = new Date(
+        b.id.match(/^\d{4}-\d{2}-\d{2}/)[0],
+      ).getTime();
+      return timeStampB - timeStampA;
+    })
+    .map((article) => ({
+      slug: article.id.match(/[a-zA-Z].+$/)[0],
+      post: article,
+    }));
+
+  return paginate(posts, { pageSize: 6 });
+};
+
+const getDateFromId = (id: string): string => {
+  const date = id.match(/^\d{4}-\d{2}-\d{2}/)[0];
+  return date;
+};
+
+const description =
+  "Letras Nubladas es un espacio dedicado a la poesía, cuentos y reflexiones. Explora nuestras publicaciones y déjate llevar por las palabras.";
+
+const { page } = Astro.props;
+console.log(page);
+---
+
+<Layout
+  classes="home-page"
+  description={description}
+  title="Poesía, cuentos y reflexiones"
+>
+  <header class="home-header">
+    <h1>Letras Nubladas</h1>
+    <p>Poesía, cuentos, reflexiones & ♥</p>
+  </header>
+  <ul class="post-list">
+    {
+      page.data?.map(({ post, slug }) => (
+        <li>
+          <article>
+            <h2 class="post-list-title">
+              <a class="post-list-link" href={slug}>
+                {post.data.title}
+              </a>
+            </h2>
+            <time class="post-list-date" datetime={getDateFromId(post.id)}>
+              {getFormatedDate(getDateFromId(post.id))}
+            </time>
+            <p class="post-list-summary">{post.data.excerpt}</p>
+          </article>
+        </li>
+      ))
+    }
+  </ul>
+
+  <nav>
+    {
+      page.url?.last && (
+        <a
+          class="button-page"
+          href={page.url.last}
+          aria-label="Última página"
+          title="Última página"
+        >
+          <ChevronFirst size={18} />
+        </a>
+      )
+    }
+    {
+      page.url?.next && (
+        <a
+          class="button-page"
+          href={page.url.next}
+          aria-label="Página anterior"
+          title="Página anterior"
+        >
+          <ChevronLeft size={18} />
+        </a>
+      )
+    }
+    <a class="button-page current">{page.currentPage}</a>
+    {
+      page.url?.prev && (
+        <a
+          class="button-page"
+          href={page.url.prev}
+          aria-label="Siguiente página"
+          title="Siguiente página"
+        >
+          <ChevronRight size={18} />
+        </a>
+      )
+    }
+    {
+      page.url?.first && (
+        <a
+          class="button-page"
+          href={page.url.first}
+          aria-label="Primera página"
+          title="Primera página"
+        >
+          <ChevronLast size={18} />
+        </a>
+      )
+    }
+  </nav>
+</Layout>
+
+<style>
+  nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-block: 4rem 2rem;
+  }
+
+  .button-page {
+    display: grid;
+    place-items: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--button-bg-color);
+    text-decoration: none;
+    border-radius: 4px;
+  }
+
+  .button-page.current {
+    background-color: transparent;
+  }
+</style>
