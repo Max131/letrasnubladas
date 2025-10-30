@@ -11,7 +11,6 @@ import {
 
 export const getStaticPaths = async ({ paginate }) => {
   const articles = await getCollection("blog");
-  console.log(articles);
   const posts = articles
     .sort((a, b) => {
       const timeStampA = new Date(
@@ -39,7 +38,6 @@ const description =
   "Letras Nubladas es un espacio dedicado a la poesía, cuentos y reflexiones. Explora nuestras publicaciones y déjate llevar por las palabras.";
 
 const { page } = Astro.props;
-console.log(page);
 ---
 
 <Layout
