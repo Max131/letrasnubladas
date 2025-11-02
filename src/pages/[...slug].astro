@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+import { Share2 } from "@lucide/astro";
 import { getFormatedDate } from "@utils/index.ts";
 import { normalizeString } from "@utils/index.ts";
 import Layout from "@layouts/Default.astro";
@@ -38,6 +39,10 @@ const { Content } = await render(post);
       }
       <Content />
     </div>
+    <button data-share>
+      <Share2 size={16} />
+      Compartir
+    </button>
   </article>
 </Layout>
 
@@ -86,4 +91,36 @@ const { Content } = await render(post);
     white-space: nowrap;
     border: 0;
   }
+
+  button {
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    border-radius: var(--rounded-sm);
+    padding: 0.5rem 0.5rem;
+    background: var(--button-bg-color);
+  }
 </style>
+
+<script>
+  const shareButton = document.querySelector("[data-share]");
+
+  shareButton.addEventListener("click", async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: document.title,
+          text: "¡Mira este artículo interesante!",
+          url: window.location.href,
+        });
+      } catch (error) {
+        console.error("Error al compartir:", error);
+      }
+    } else {
+      await navigator.clipboard.writeText(window.location.href);
+      alert("Enlace copiado al portapapeles");
+    }
+  });
+</script>
