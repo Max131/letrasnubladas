@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import { Share2 } from "@lucide/astro";
+import { Printer, Share2 } from "@lucide/astro";
 import { getFormatedDate } from "@utils/index.ts";
 import { normalizeString } from "@utils/index.ts";
 import Layout from "@layouts/Default.astro";
@@ -42,10 +42,16 @@ const { Content } = await render(post);
       }
       <Content />
     </div>
-    <button data-share>
-      <Share2 size={16} />
-      Compartir
-    </button>
+    <div class="buttons">
+      <button data-share>
+        <Share2 size={16} />
+        Compartir
+      </button>
+      <button data-print>
+        <Printer size={16} />
+        Imprimir
+      </button>
+    </div>
   </article>
 </Layout>
 
@@ -107,8 +113,13 @@ const { Content } = await render(post);
     }
   }
 
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    margin-block: 5rem 3rem;
+  }
+
   button {
-    margin-top: 4rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -150,5 +161,10 @@ const { Content } = await render(post);
       await navigator.clipboard.writeText(window.location.href);
       alert("Enlace copiado al portapapeles");
     }
+  });
+
+  const printButton = document.querySelector("[data-print]");
+  printButton.addEventListener("click", () => {
+    window.print();
   });
 </script>
