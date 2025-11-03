@@ -19,12 +19,14 @@ const images = import.meta.glob<ImageMetadata>(
 if (!images[imageURL]) {
   throw new Error(`Image not found: ${image}`);
 }
+
+const POST_IMAGE = images[imageURL]();
 ---
 
 <figure>
   <Image
     class="post-image"
-    src={images[imageURL]()}
+    src={POST_IMAGE}
     alt={alt}
     width={width}
     height={height}

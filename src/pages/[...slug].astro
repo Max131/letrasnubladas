@@ -23,7 +23,7 @@ const { Content } = await render(post);
   description={post.data.excerpt}
   classes="post-page"
 >
-  <article class={normalizeString(post.data.category)}>
+  <article class={`post-content ${normalizeString(post.data.category)}`}>
     <header>
       <h1>{post.data.title}</h1>
       <p>{post.data.category} por {post.data.author}</p>
@@ -31,7 +31,7 @@ const { Content } = await render(post);
         {getFormatedDate(post.id.match(/^\d{4}-\d{2}-\d{2}/)[0])}
       </time>
     </header>
-    <div>
+    <div class="post-body">
       {
         post.data.image && (
           <PostImage image={post.data.image} alt={post.data.title} />
