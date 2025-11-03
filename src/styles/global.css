@@ -21,6 +21,12 @@
     font-size: 1.125rem;
     grid-template-rows: auto 1fr auto;
     line-height: 1.625;
+
+    @media print {
+      color: #4c4c4c;
+      font-size: 12pt;
+      line-height: 1.5;
+    }
   }
 
   :where(h1, h2, h3, h4, h5, h6) {
