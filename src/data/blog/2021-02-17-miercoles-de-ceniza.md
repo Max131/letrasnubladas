@@ -34,4 +34,4 @@ Pero, a pesar de todo, hay un momento que me aterra, cada miércoles de ceniza c
 
 ***
 
-Imagen por [Pexels](https://pixabay.com/es/users/pexels-2286921/) en [Pixabay](https://pixaba.com/)
+Imagen por [Pexels](https://pixabay.com/es/users/pexels-2286921/) en [Pixabay](https://pixabay.com/)

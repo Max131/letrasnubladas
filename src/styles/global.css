@@ -98,4 +98,25 @@
   .post-list-summary {
     margin-block: 0 2rem;
   }
+
+  .post-content p {
+    &:last-child:has([href]) {
+      @media print {
+        display: none;
+      }
+    }
+
+    @media print {
+      overflow: visible;
+      break-after: avoid;
+      break-before: avoid;
+      break-inside: avoid;
+    }
+  }
+
+  hr {
+    @media print {
+      display: none;
+    }
+  }
 }
