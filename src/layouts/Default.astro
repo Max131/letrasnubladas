@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from "astro:transitions";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import "@fontsource-variable/playfair-display";
@@ -70,7 +69,6 @@ const { title = "", description = "", classes = "" } = Astro.props;
       href={new URL("/rss.xml", Astro.site).toString()}
     />
     <title>{title ? `${title} | Letras Nubladas` : "Letras Nubladas"}</title>
-    <ClientRouter />
   </head>
 
   <body class:list={classes}>
