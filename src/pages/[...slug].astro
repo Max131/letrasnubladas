@@ -25,7 +25,7 @@ const { Content } = await render(post);
 >
   <article class={`post-content ${normalizeString(post.data.category)}`}>
     <header>
-      <h1>{post.data.title}</h1>
+      <h1 transition:name={post.data.title}>{post.data.title}</h1>
       <p>
         {post.data.category} por {post.data.author}
         <span class="print-url"> en letrasnubladas.com</span>
@@ -142,29 +142,3 @@ const { Content } = await render(post);
     }
   }
 </style>
-
-<script>
-  const shareButton = document.querySelector("[data-share]");
-
-  shareButton.addEventListener("click", async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: document.title,
-          text: "¡Mira este texto de Letras Nubladas...",
-          url: window.location.href,
-        });
-      } catch (error) {
-        console.error("Error al compartir:", error);
-      }
-    } else {
-      await navigator.clipboard.writeText(window.location.href);
-      alert("Enlace copiado al portapapeles");
-    }
-  });
-
-  const printButton = document.querySelector("[data-print]");
-  printButton.addEventListener("click", () => {
-    window.print();
-  });
-</script>

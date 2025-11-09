@@ -54,7 +54,7 @@ const { page } = Astro.props;
       page.data?.map(({ post, slug }) => (
         <li>
           <article>
-            <h2 class="post-list-title">
+            <h2 class="post-list-title" transition:name={post.data.title}>
               <a class="post-list-link" href={`/${slug}`}>
                 {post.data.title}
               </a>
