@@ -29,7 +29,7 @@ const blog = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/data/blog" }),
   schema: z.object({
     title: z.string(),
-    authors: z.array(z.string()).optional(),
+    author: z.string().optional(),
     excerpt: z.string().optional(),
     category: z.string().optional(),
     image: z.string().optional(),
@@ -66,7 +66,7 @@ Every blog post uses this frontmatter:
 ```yaml
 ---
 title: "Post Title"                    # Required
-authors: ["Mario"]                     # Optional, usually Mario
+author: "Mario"                        # Optional, usually Mario
 excerpt: "Brief description"           # Optional but recommended
 category: poema|cuento|reflexión       # Optional
 image: filename.jpg                    # Optional, filename only!

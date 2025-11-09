@@ -47,7 +47,7 @@ All posts are in `src/data/blog/` with naming convention: `YYYY-MM-DD-title.md`
 ```yaml
 ---
 title: string (required)        # Post title
-authors: string[] (optional)    # Array of author names
+author: string (optional)       # Array of author names
 excerpt: string (optional)      # Brief description
 category: string (optional)     # poema, cuento, reflexión, etc.
 image: string (optional)        # Image filename (no path, just filename.jpg)
@@ -61,6 +61,8 @@ image: string (optional)        # Image filename (no path, just filename.jpg)
 Common categories used:
 - `poema` - Poetry
 - `cuento` - Short story
+- `micro cuento` - Micro story
+- `carta` Letter
 - `reflexión` - Reflection/essay
 
 ### Content Collection
