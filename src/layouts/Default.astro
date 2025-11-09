@@ -81,28 +81,3 @@ const { title = "", description = "", classes = "" } = Astro.props;
     <Footer />
   </body>
 </html>
-<script>
-  const shareButton = document.querySelector("[data-share]");
-  const printButton = document.querySelector("[data-print]");
-
-  shareButton?.addEventListener("click", async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: document.title,
-          text: "¡Mira este texto de Letras Nubladas...",
-          url: window.location.href,
-        });
-      } catch (error) {
-        console.error("Error al compartir:", error);
-      }
-    } else {
-      await navigator.clipboard.writeText(window.location.href);
-      alert("Enlace copiado al portapapeles");
-    }
-  });
-
-  printButton?.addEventListener("click", () => {
-    window.print();
-  });
-</script>
