@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import { House, Printer, Share2 } from "@lucide/astro";
+import { ChevronLeft, House, Printer, Share2 } from "@lucide/astro";
 import { getFormatedDate } from "@utils/index.ts";
 import { normalizeString } from "@utils/index.ts";
 import Layout from "@layouts/Default.astro";
@@ -43,10 +43,10 @@ const { Content } = await render(post);
       <Content />
     </div>
     <div class="buttons">
-      <a href="/">
-        <House size={16} />
-        Inicio
-      </a>
+      <button data-back>
+        <ChevronLeft size={16} />
+        Regresar
+      </button>
       <button data-share>
         <Share2 size={16} />
         Compartir
@@ -123,7 +123,6 @@ const { Content } = await render(post);
     margin-block: 5rem 3rem;
   }
 
-  a,
   button {
     display: flex;
     align-items: center;
@@ -164,8 +163,13 @@ const { Content } = await render(post);
 
 <script>
   document.addEventListener("astro:page-load", () => {
+    const backButton = document.querySelector("[data-back]");
     const shareButton = document.querySelector("[data-share]");
     const printButton = document.querySelector("[data-print]");
+
+    backButton?.addEventListener("click", () => {
+      window.history.back();
+    });
 
     shareButton?.addEventListener("click", async () => {
       if (navigator.share) {
