@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import Header from "@components/Header.astro";
+import Loader from "@components/Loader.astro";
 import Footer from "@components/Footer.astro";
 import "@fontsource-variable/playfair-display";
 import "@fontsource-variable/lora";
@@ -79,5 +80,14 @@ const { title = "", description = "", classes = "" } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <Loader />
   </body>
 </html>
+
+<script>
+  document.addEventListener("astro:before-preparation", () => {
+    document.querySelector("main")?.classList.add("loading");
+    const loader = document.querySelector(".loader");
+    loader?.classList.add("visible");
+  });
+</script>
