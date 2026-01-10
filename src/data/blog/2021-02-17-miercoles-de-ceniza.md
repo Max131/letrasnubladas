@@ -66,8 +66,8 @@ pequeños momentos de consciencia y cuando tengo visitas y me hablan, me siento
 confortado, aunque sea por instantes, aunque nadie sepa que hay pequeños
 instantes en que los escucho.
 
-Dentro de esos pequeños instantes, hay uno que me aterra en particular, cada
-miércoles de ceniza cuando ella viene a visitarme.
+Pero, dentro de esos pequeños instantes, hay uno que me aterra en particular,
+cada miércoles de ceniza... cuando ella viene a visitarme.
 
 ---
 
