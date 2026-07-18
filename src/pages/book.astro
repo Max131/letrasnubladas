@@ -108,7 +108,7 @@ import kindle2 from "@assets/libro/kindle-2.webp";
     </section>
 
     <section class="buy">
-      Puedes encntrarlo en Amazon: <a
+      Puedes         encontrarlo en Amazon: <a
         href="https://www.amazon.com/-/es/Mario-Flores-Abreu-ebook/dp/B08W9SBMKB/"
         rel="noopener noreferrer"
         target="_blank">Del amor a la soledad</a
@@ -133,14 +133,14 @@ import kindle2 from "@assets/libro/kindle-2.webp";
   .book-cta {
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid #e5d7c2;
+    border-top: 1px solid var(--button-bg-color);
   }
 
   .book-cover {
     float: right;
     display: block;
     margin: 2rem auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 4px 16px -6px currentColor;
     border-radius: 8px;
   }
 
@@ -155,11 +155,11 @@ import kindle2 from "@assets/libro/kindle-2.webp";
   .book-demo {
     display: block;
     margin: 2rem auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 4px 16px -6px currentColor;
     border-radius: 8px;
   }
 
-  @media (width <= 600px) {
+  @media (width <= 40rem) {
     .book-cover {
       float: none;
     }

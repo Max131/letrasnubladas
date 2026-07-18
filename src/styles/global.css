@@ -32,6 +32,10 @@
   main.loading {
     opacity: 0.25;
     transition: opacity 200ms ease-in-out;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
   :where(h1, h2, h3, h4, h5, h6) {
