@@ -6,20 +6,41 @@ import Footer from "@components/Footer.astro";
 import "@fontsource-variable/playfair-display";
 import "@fontsource-variable/lora";
 import "../styles/global.css";
+import { SITE_DESCRIPTION } from "@utils/schema.ts";
 
 interface Props {
   title?: string;
   description?: string;
   classes?: string;
+  ogType?: "website" | "article";
+  publishedTime?: string;
+  ogImage?: { url: string; width?: number; height?: number; alt?: string };
+  noindex?: boolean;
 }
 
-const { title = "", description = "", classes = "" } = Astro.props;
+const {
+  title = "",
+  description = SITE_DESCRIPTION,
+  classes = "",
+  ogType = "website",
+  publishedTime,
+  ogImage,
+  noindex = false,
+} = Astro.props;
+
+const SITE_IMAGE = {
+  url: new URL("og.jpg", Astro.site).toString(),
+  width: 1200,
+  height: 675,
+};
+
+const og = ogImage ?? SITE_IMAGE;
 ---
 
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="robots" content="follow, index" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "follow, index"} />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#e5d7c2" />
     <meta name="generator" content={Astro.generator} />
@@ -45,18 +66,22 @@ const { title = "", description = "", classes = "" } = Astro.props;
       content={new URL(Astro.url.pathname, Astro.site).toString()}
     />
     <meta property="og:site_name" content="Letras Nubladas" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content={`${Astro.site}og.jpg`} />
+    <meta property="og:type" content={ogType} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    <meta property="og:image" content={og.url} />
+    {og.width && <meta property="og:image:width" content={String(og.width)} />}
+    {og.height && <meta property="og:image:height" content={String(og.height)} />}
+    <meta property="og:image:alt" content={og.alt ?? "Letras Nubladas"} />
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:domain" content={Astro.site} />
+    <meta property="twitter:domain" content={Astro.site.hostname} />
     <meta
       property="twitter:url"
       content={new URL(Astro.url.pathname, Astro.site).toString()}
     />
     <meta name="twitter:title" content={`${title}`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${Astro.site}og.jpg`} />
+    <meta name="twitter:image" content={og.url} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link

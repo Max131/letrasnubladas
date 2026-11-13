@@ -28,8 +28,17 @@ const images = import.meta.glob<ImageMetadata>(
   "/src/assets/images/*.{jpg,jpeg,png,webp,avif,gif}",
 );
 const imageFile = post.data.image && images[`/src/assets/images/${post.data.image}`];
-const imageURL = imageFile
-  ? new URL((await imageFile()).default.src, Astro.site).toString()
+const imageMeta = imageFile ? await imageFile() : undefined;
+const imageURL = imageMeta
+  ? new URL(imageMeta.default.src, Astro.site).toString()
+  : undefined;
+const ogImage = imageMeta
+  ? {
+      url: imageURL,
+      width: imageMeta.default.width,
+      height: imageMeta.default.height,
+      alt: post.data.title,
+    }
   : undefined;
 
 const AUTHOR = authorNode(Astro.site);
@@ -64,6 +73,9 @@ const schema = {
   title={post.data.title}
   description={post.data.excerpt}
   classes="post-page"
+  ogType="article"
+  publishedTime={postDate}
+  ogImage={ogImage}
 >
   <article class={`post-content ${normalizeString(post.data.category)}`}>
     <header>
