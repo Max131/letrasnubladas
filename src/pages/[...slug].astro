@@ -1,10 +1,13 @@
 ---
 import { getCollection, render } from "astro:content";
+import type { ImageMetadata } from "astro";
 import { ChevronLeft, Printer, Share2 } from "@lucide/astro";
 import { getFormatedDate } from "@utils/index.ts";
 import { normalizeString } from "@utils/index.ts";
+import { LICENSE, SITE_LANGUAGE, authorNode } from "@utils/schema.ts";
 import Layout from "@layouts/Default.astro";
 import PostImage from "@components/PostImage.astro";
+import StructuredData from "@components/StructuredData.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -16,6 +19,45 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const postDate = post.id.match(/^\d{4}-\d{2}-\d{2}/)[0];
+const postURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+// Resolve the post image to its absolute built URL (same glob as PostImage).
+const images = import.meta.glob<ImageMetadata>(
+  "/src/assets/images/*.{jpg,jpeg,png,webp,avif,gif}",
+);
+const imageFile = post.data.image && images[`/src/assets/images/${post.data.image}`];
+const imageURL = imageFile
+  ? new URL((await imageFile()).default.src, Astro.site).toString()
+  : undefined;
+
+const AUTHOR = authorNode(Astro.site);
+const AUTHOR_ID = `${new URL("/about/", Astro.site).toString()}#author`;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      ...AUTHOR,
+      "@id": AUTHOR_ID,
+    },
+    {
+      "@type": "BlogPosting",
+      headline: post.data.title,
+      description: post.data.excerpt,
+      datePublished: postDate,
+      copyrightYear: postDate.slice(0, 4),
+      inLanguage: SITE_LANGUAGE,
+      license: LICENSE,
+      url: postURL,
+      mainEntityOfPage: postURL,
+      ...(imageURL ? { image: imageURL } : {}),
+      author: { "@id": AUTHOR_ID },
+      publisher: { "@id": AUTHOR_ID },
+    },
+  ],
+};
 ---
 
 <Layout
@@ -57,6 +99,7 @@ const { Content } = await render(post);
       </button>
     </div>
   </article>
+  <StructuredData data={schema} />
 </Layout>
 
 <style>

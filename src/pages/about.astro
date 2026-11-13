@@ -1,5 +1,17 @@
 ---
 import Layout from "@layouts/Default.astro";
+import { AUTHOR_NAME, SITE_LANGUAGE } from "@utils/schema.ts";
+import StructuredData from "@components/StructuredData.astro";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: AUTHOR_NAME,
+  url: new URL(Astro.url.pathname, Astro.site).toString(),
+  description:
+    "Mario Flores Abreu, autor de Letras Nubladas: poesía, cuentos y reflexiones desde 2014.",
+  knowsLanguage: SITE_LANGUAGE,
+};
 ---
 
 <Layout description="Acerca de Mario Flores Abreu" title="Acerca de mí">
@@ -56,4 +68,5 @@ import Layout from "@layouts/Default.astro";
       >, eso me motiva a seguir compartiendo mis letras contigo.
     </p>
   </article>
+  <StructuredData data={personSchema} />
 </Layout>

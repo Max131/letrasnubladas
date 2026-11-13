@@ -4,6 +4,27 @@ import Layout from "@layouts/Default.astro";
 import cover from "@assets/libro/cover.webp";
 import kindle1 from "@assets/libro/kindle-1.webp";
 import kindle2 from "@assets/libro/kindle-2.webp";
+import { LICENSE, SITE_LANGUAGE, authorNode } from "@utils/schema.ts";
+import StructuredData from "@components/StructuredData.astro";
+
+const bookURL = new URL(Astro.url.pathname, Astro.site).toString();
+const amazonURL =
+  "https://www.amazon.com/-/es/Mario-Flores-Abreu-ebook/dp/B08W9SBMKB/";
+
+const bookSchema = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  name: "Del amor a la soledad",
+  author: authorNode(Astro.site),
+  datePublished: "2021-02",
+  inLanguage: SITE_LANGUAGE,
+  license: LICENSE,
+  url: bookURL,
+  sameAs: amazonURL,
+  image: new URL(cover.src, Astro.site).toString(),
+  description:
+    "Recopilación de poemas y reflexiones que traza el mapa emocional del corazón humano: el amor, la soledad y la esperanza, por Mario Flores Abreu.",
+};
 ---
 
 <Layout
@@ -109,12 +130,13 @@ import kindle2 from "@assets/libro/kindle-2.webp";
 
     <section class="buy">
       Puedes encontrarlo en Amazon: <a
-        href="https://www.amazon.com/-/es/Mario-Flores-Abreu-ebook/dp/B08W9SBMKB/"
+        href={amazonURL}
         rel="noopener noreferrer"
         target="_blank">Del amor a la soledad</a
       >
     </section>
   </article>
+  <StructuredData data={bookSchema} />
 </Layout>
 
 <style>

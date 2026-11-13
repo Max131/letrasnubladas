@@ -2,6 +2,8 @@
 import Layout from "@layouts/Default.astro";
 import { getCollection } from "astro:content";
 import { getFormatedDate } from "@utils/index.ts";
+import { SITE_LANGUAGE, authorNode } from "@utils/schema.ts";
+import StructuredData from "@components/StructuredData.astro";
 import {
   ChevronLeft,
   ChevronRight,
@@ -38,6 +40,16 @@ const description =
   "Letras Nubladas es un espacio dedicado a la poesía, cuentos y reflexiones. Explora nuestras publicaciones y déjate llevar por las palabras.";
 
 const { page } = Astro.props;
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Letras Nubladas",
+  url: Astro.site.toString(),
+  description: description,
+  inLanguage: SITE_LANGUAGE,
+  author: authorNode(Astro.site),
+};
 ---
 
 <Layout
@@ -68,6 +80,10 @@ const { page } = Astro.props;
       ))
     }
   </ul>
+
+  {
+    page.currentPage === 1 && <StructuredData data={websiteSchema} />
+  }
 
   <nav>
     {
