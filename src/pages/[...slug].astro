@@ -218,6 +218,10 @@ const schema = {
     gap: 1rem;
     margin-block: 0 3rem;
     font-size: 0.875rem;
+
+    @media print {
+      display: none;
+    }
   }
 
   .post-nav a {
