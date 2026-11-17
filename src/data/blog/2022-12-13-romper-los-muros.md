@@ -6,5 +6,5 @@ category: poema
 ---
 
 Voy a romper los muros y derribar los miedos, voy a sacar el corazón y explotar el alma; 
-voy por esta vez a jugarmela y tirar todas mis cartas; voy con todo el corazón a poner 
+voy por esta vez a jugármela y tirar todas mis cartas; voy con todo el corazón a poner 
 mi apuesta, porque gane o pierda, al fin se libera el alma.
