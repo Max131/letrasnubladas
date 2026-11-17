@@ -1,0 +1,176 @@
+---
+import Layout from "@layouts/Default.astro";
+import { getCollection } from "astro:content";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronFirst,
+  ChevronLast,
+} from "@lucide/astro";
+import { getFormatedDate, normalizeString } from "@utils/index.ts";
+import { SITE_LANGUAGE, SITE_DESCRIPTION, authorNode } from "@utils/schema.ts";
+import StructuredData from "@components/StructuredData.astro";
+
+const toDate = (id: string) => id.match(/^\d{4}-\d{2}-\d{2}/)[0];
+
+export const getStaticPaths = async ({ paginate }) => {
+  const toDate = (id: string) => id.match(/^\d{4}-\d{2}-\d{2}/)[0];
+  const posts = await getCollection("blog");
+
+  const categories = new Map();
+  for (const post of posts) {
+    const category = post.data.category?.trim();
+    if (!category) continue;
+    const slug = normalizeString(category);
+    if (!categories.has(slug)) categories.set(slug, []);
+    categories.get(slug).push(post);
+  }
+
+  return [...categories.entries()].flatMap(([category, posts]) =>
+    paginate(
+      posts
+        .sort(
+          (a, b) =>
+            new Date(toDate(b.id)).getTime() - new Date(toDate(a.id)).getTime(),
+        )
+        .map((post) => ({
+          slug: post.id.match(/[a-zA-Z].+$/)[0],
+          post,
+        })),
+      { params: { category }, pageSize: 6 },
+    ),
+  );
+};
+
+const { page } = Astro.props;
+
+const rawCategory = Astro.params.category;
+const displayName =
+  page.data[0]?.post.data.category?.trim() ?? rawCategory;
+const categoryName =
+  displayName.charAt(0).toUpperCase() + displayName.slice(1);
+
+const pageSuffix =
+  page.currentPage > 1
+    ? ` · Página ${page.currentPage} de ${page.lastPage}`
+    : "";
+const title = `${categoryName}${pageSuffix}`;
+const description = `Textos publicados bajo la categoría "${rawCategory}" en Letras Nubladas${pageSuffix}.`;
+
+const categorySchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: categoryName,
+  url: new URL(Astro.url.pathname, Astro.site).toString(),
+  description: description,
+  inLanguage: SITE_LANGUAGE,
+  author: authorNode(Astro.site),
+};
+---
+
+<Layout classes="category-page" description={description} title={title}>
+  <header class="home-header">
+    <h1>{categoryName}</h1>
+    <p>
+      {page.total} texto{page.total === 1 ? "" : "s"} ·{" "}
+      <a href="/archivo">Archivo</a>
+    </p>
+  </header>
+  <ul class="post-list">
+    {
+      page.data?.map(({ post, slug }) => (
+        <li>
+          <article>
+            <h2 class="post-list-title" transition:name={post.data.title}>
+              <a class="post-list-link" href={`/${slug}`}>
+                {post.data.title}
+              </a>
+            </h2>
+            <time class="post-list-date" datetime={toDate(post.id)}>
+              {getFormatedDate(toDate(post.id))}
+            </time>
+            <p class="post-list-summary">{post.data.excerpt}</p>
+          </article>
+        </li>
+      ))
+    }
+  </ul>
+
+  {page.currentPage === 1 && <StructuredData data={categorySchema} />}
+
+  <nav>
+    {
+      page.url?.last && (
+        <a
+          class="button-page"
+          href={page.url.last}
+          aria-label="Última página"
+          title="Última página"
+        >
+          <ChevronFirst size={18} aria-hidden="true" />
+        </a>
+      )
+    }
+    {
+      page.url?.next && (
+        <a
+          class="button-page"
+          href={page.url.next}
+          aria-label="Página anterior"
+          title="Página anterior"
+        >
+          <ChevronLeft size={18} aria-hidden="true" />
+        </a>
+      )
+    }
+    <span class="button-page current"
+      >{page.currentPage} de {page.lastPage}</span
+    >
+    {
+      page.url?.prev && (
+        <a
+          class="button-page"
+          href={page.url.prev}
+          aria-label="Página siguiente"
+          title="Página siguiente"
+        >
+          <ChevronRight size={18} aria-hidden="true" />
+        </a>
+      )
+    }
+    {
+      page.url?.first && (
+        <a
+          class="button-page"
+          href={page.url.first}
+          aria-label="Primera página"
+          title="Primera página"
+        >
+          <ChevronLast size={18} aria-hidden="true" />
+        </a>
+      )
+    }
+  </nav>
+</Layout>
+
+<style>
+  nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-block: 4rem 2rem;
+  }
+
+  .button-page {
+    display: grid;
+    place-items: center;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--button-bg-color);
+    text-decoration: none;
+    border-radius: 4px;
+  }
+
+  .button-page.current {
+    background-color: transparent;
+  }
+</style>
