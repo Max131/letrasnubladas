@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import type { ImageMetadata } from "astro";
-import { ChevronLeft, Printer, Share2 } from "@lucide/astro";
+import { ChevronLeft, Printer, Share2, ChevronRight } from "@lucide/astro";
 import { getFormatedDate } from "@utils/index.ts";
 import { normalizeString } from "@utils/index.ts";
 import { LICENSE, SITE_LANGUAGE, authorNode } from "@utils/schema.ts";
@@ -11,13 +11,23 @@ import StructuredData from "@components/StructuredData.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
-  return posts.map((post) => ({
+  const sorted = [...posts].sort(
+    (a, b) =>
+      new Date(b.id.match(/^\d{4}-\d{2}-\d{2}/)[0]).getTime() -
+      new Date(a.id.match(/^\d{4}-\d{2}-\d{2}/)[0]).getTime(),
+  );
+
+  return sorted.map((post, index) => ({
     params: { slug: post.id.match(/[a-zA-Z].+/)[0] },
-    props: { post },
+    props: {
+      post,
+      older: sorted[index + 1],
+      newer: sorted[index - 1],
+    },
   }));
 }
 
-const { post } = Astro.props;
+const { post, older, newer } = Astro.props;
 const { Content } = await render(post);
 
 const postDate = post.id.match(/^\d{4}-\d{2}-\d{2}/)[0];
@@ -81,7 +91,10 @@ const schema = {
     <header>
       <h1 transition:name={post.data.title}>{post.data.title}</h1>
       <p>
-        {post.data.category} por {post.data.author}
+        {post.data.category && (
+          <a class="post-category" href={`/categoria/${normalizeString(post.data.category)}/`}>{post.data.category.trim()}</a>
+        )}
+        por {post.data.author}
         <span class="print-url"> en letrasnubladas.com</span>
       </p>
       <time datetime={`${post.id.match(/^\d{4}-\d{2}-\d{2}/)[0]}`}>
@@ -110,6 +123,28 @@ const schema = {
         Imprimir
       </button>
     </div>
+    <nav class="post-nav">
+      {
+        older ? (
+          <a href={`/${older.id.match(/[a-zA-Z].+/)[0]}/`} rel="prev">
+            <ChevronLeft size={16} aria-hidden="true" />
+            {older.data.title}
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        newer ? (
+          <a href={`/${newer.id.match(/[a-zA-Z].+/)[0]}/`} rel="next">
+            {newer.data.title}
+            <ChevronRight size={16} aria-hidden="true" />
+          </a>
+        ) : (
+          <span />
+        )
+      }
+    </nav>
   </article>
   <StructuredData data={schema} />
 </Layout>
@@ -148,6 +183,11 @@ const schema = {
     }
   }
 
+  .post-category {
+    color: inherit;
+    text-decoration: none;
+  }
+
   time {
     position: absolute;
     width: 1px;
@@ -170,6 +210,31 @@ const schema = {
       white-space: normal;
       font-size: small;
     }
+  }
+
+  .post-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-block: 0 3rem;
+    font-size: 0.875rem;
+
+    @media print {
+      display: none;
+    }
+  }
+
+  .post-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: inherit;
+    max-width: 45%;
+  }
+
+  .post-nav a:last-child {
+    text-align: right;
   }
 
   .buttons {

@@ -1,0 +1,96 @@
+---
+import Layout from "@layouts/Default.astro";
+import { getCollection } from "astro:content";
+import { getFormatedDate } from "@utils/index.ts";
+import { SITE_LANGUAGE, authorNode } from "@utils/schema.ts";
+import StructuredData from "@components/StructuredData.astro";
+
+const toDate = (id: string) => id.match(/^\d{4}-\d{2}-\d{2}/)[0];
+const toSlug = (id: string) => id.match(/[a-zA-Z].+/)[0];
+
+const posts = await getCollection("blog");
+const sorted = [...posts].sort(
+  (a, b) => new Date(toDate(b.id)).getTime() - new Date(toDate(a.id)).getTime(),
+);
+const years = [...new Set(sorted.map((post) => toDate(post.id).slice(0, 4)))];
+
+const archiveURL = new URL(Astro.url.pathname, Astro.site).toString();
+const archiveSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Archivo",
+  url: archiveURL,
+  inLanguage: SITE_LANGUAGE,
+  author: authorNode(Astro.site),
+};
+---
+
+<Layout
+  description="Archivo completo de Letras Nubladas: poemas, cuentos, cartas y reflexiones publicados desde 2014."
+  title="Archivo"
+>
+  <header class="home-header">
+    <h1>Archivo</h1>
+    <p>Todos los textos publicados desde 2014.</p>
+  </header>
+
+  {
+    years.map((year) => (
+      <section class="archive-year">
+        <h2 id={year}>{year}</h2>
+        <ul class="archive-list">
+          {sorted
+            .filter((post) => toDate(post.id).startsWith(year))
+            .map((post) => (
+              <li>
+                <a class="archive-link" href={`/${toSlug(post.id)}/`}>
+                  {post.data.title}
+                </a>
+                <time class="archive-date" datetime={toDate(post.id)}>
+                  {getFormatedDate(toDate(post.id))}
+                </time>
+              </li>
+            ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  <StructuredData data={archiveSchema} />
+</Layout>
+
+<style>
+  .archive-year h2 {
+    border-bottom: 1px solid var(--button-bg-color);
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-block: 2rem 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .archive-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .archive-list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    margin-block: 0.5rem;
+  }
+
+  .archive-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .archive-date {
+    color: color-mix(in srgb, var(--text-color), transparent 30%);
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+</style>
